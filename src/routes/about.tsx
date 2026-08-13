@@ -8,9 +8,9 @@ import { CounsellingButton } from "@/components/CounsellingDialog";
 import { whyChooseUs } from "@/data/services";
 import { siteConfig } from "@/config/site";
 
-const title = "About Us | Dearm Scholars Abroad Pvt. Ltd.";
+const title = "About Us | Dream Scholars Abroad Pvt. Ltd.";
 const description =
-  "Learn about Dearm Scholars Abroad Pvt. Ltd., our mission to guide students towards global education, and founder Md Tahir Hussain.";
+  "Learn about Dream Scholars Abroad Pvt. Ltd., our mission to guide students towards global education, and founder Md Tahir Hussain.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -59,7 +59,7 @@ function About() {
               align="left"
               eyebrow="Who We Are"
               title="An overseas education consultancy focused on informed decisions"
-              description="Dearm Scholars Abroad Pvt. Ltd. supports students who want to study abroad — from understanding suitable destinations and courses, to preparing applications, exploring scholarship opportunities and planning for departure."
+              description="Dream Scholars Abroad Pvt. Ltd. supports students who want to study abroad — from understanding suitable destinations and courses, to preparing applications, exploring scholarship opportunities and planning for departure."
             />
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               <div className="rounded-2xl border border-border bg-card p-5 shadow-card">

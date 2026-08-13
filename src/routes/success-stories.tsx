@@ -6,9 +6,9 @@ import { CtaBand, Disclaimer, PageHero, Section } from "@/components/sections";
 import { CounsellingButton } from "@/components/CounsellingDialog";
 import { testimonials } from "@/data/testimonials";
 
-const title = "Success Stories | Dearm Scholars Abroad";
+const title = "Success Stories | Dream Scholars Abroad";
 const description =
-  "Student experiences of studying abroad with counselling, application and scholarship guidance from Dearm Scholars Abroad.";
+  "Student experiences of studying abroad with counselling, application and scholarship guidance from Dream Scholars Abroad.";
 
 export const Route = createFileRoute("/success-stories")({
   head: () => ({

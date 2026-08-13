@@ -10,9 +10,9 @@ import { selectClass } from "@/components/forms/fields";
 import { scholarships } from "@/data/scholarships";
 import { generalFaqs } from "@/data/faqs";
 
-const title = "Scholarships & Financial Aid | Dearm Scholars Abroad";
+const title = "Scholarships & Financial Aid | Dream Scholars Abroad";
 const description =
-  "Explore scholarship types for studying abroad, understand eligibility factors and check your scholarship eligibility with guidance from Dearm Scholars Abroad.";
+  "Explore scholarship types for studying abroad, understand eligibility factors and check your scholarship eligibility with guidance from Dream Scholars Abroad.";
 
 export const Route = createFileRoute("/scholarships")({
   head: () => ({

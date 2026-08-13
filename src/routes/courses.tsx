@@ -6,7 +6,7 @@ import { CtaBand, Disclaimer, PageHero, Section } from "@/components/sections";
 import { CounsellingButton } from "@/components/CounsellingDialog";
 import { courseCategories } from "@/data/courses";
 
-const title = "Courses & Study Areas | Dearm Scholars Abroad";
+const title = "Courses & Study Areas | Dream Scholars Abroad";
 const description =
   "Explore popular study areas abroad including business, computer science, engineering, healthcare, data science and more, with guidance on choosing the right course.";
 

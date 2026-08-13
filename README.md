@@ -4,13 +4,13 @@ Build a Professional Study Abroad Consultancy Website
 
 Create a modern, premium, trustworthy and fully responsive website for an overseas education consultancy company named:
 
-Dearm Scholars Abroad Pvt. Ltd.
+Dream Scholars Abroad Pvt. Ltd.
 
 Company Founder & Director
 
 Md Tahir Hussain
 
-The website should position Dearm Scholars Abroad Pvt. Ltd. as a professional education consultancy that helps students study abroad and assists them in finding suitable universities, courses, scholarships and admission opportunities.
+The website should position Dream Scholars Abroad Pvt. Ltd. as a professional education consultancy that helps students study abroad and assists them in finding suitable universities, courses, scholarships and admission opportunities.
 
 The overall website should feel premium, trustworthy, student-friendly, international and professional.
 
@@ -44,7 +44,7 @@ The website should be designed primarily for students and parents who are planni
 
 Company Name:
 
-Dearm Scholars Abroad Pvt. Ltd.
+Dream Scholars Abroad Pvt. Ltd.
 
 Founder & Director:
 
@@ -60,7 +60,7 @@ Alternative tagline:
 
 Use the brand name consistently throughout the website.
 
-Create a clean professional logo concept using the initials or name DSA / Dearm Scholars Abroad.
+Create a clean professional logo concept using the initials or name DSA / Dream Scholars Abroad.
 
 The branding should communicate:
 
@@ -170,7 +170,7 @@ Headline:
 
 Supporting text:
 
-"Dearm Scholars Abroad Pvt. Ltd. helps students discover the right universities, courses and scholarship opportunities to build a successful global career."
+"Dream Scholars Abroad Pvt. Ltd. helps students discover the right universities, courses and scholarship opportunities to build a successful global career."
 
 Primary CTA:
 
@@ -246,9 +246,9 @@ Create an attractive About Us section.
 
 Heading:
 
-"About Dearm Scholars Abroad"
+"About Dream Scholars Abroad"
 
-Explain that Dearm Scholars Abroad Pvt. Ltd. is an overseas education consultancy focused on helping students make informed decisions about international education.
+Explain that Dream Scholars Abroad Pvt. Ltd. is an overseas education consultancy focused on helping students make informed decisions about international education.
 
 Include:
 
@@ -280,7 +280,7 @@ Include a short professional biography placeholder that can be edited later.
 
 Example:
 
-"Md Tahir Hussain, Founder & Director of Dearm Scholars Abroad Pvt. Ltd., is committed to helping students access quality international education and make confident decisions about their academic and career journey."
+"Md Tahir Hussain, Founder & Director of Dream Scholars Abroad Pvt. Ltd., is committed to helping students access quality international education and make confident decisions about their academic and career journey."
 
 Do not invent qualifications, awards or years of experience. Keep those fields editable.
 
@@ -288,7 +288,7 @@ Do not invent qualifications, awards or years of experience. Keep those fields e
 
 Create a section titled:
 
-"Why Choose Dearm Scholars Abroad?"
+"Why Choose Dream Scholars Abroad?"
 
 Use attractive icons/cards.
 
@@ -708,7 +708,7 @@ Create a professional Contact Us page.
 
 Include:
 
-Dearm Scholars Abroad Pvt. Ltd.
+Dream Scholars Abroad Pvt. Ltd.
 
 Founder & Director: Md Tahir Hussain
 
@@ -764,7 +764,7 @@ WHATSAPP_NUMBER
 
 Clicking the button should open WhatsApp with a pre-filled message:
 
-"Hello Dearm Scholars Abroad, I would like to know more about studying abroad and scholarship opportunities."
+"Hello Dream Scholars Abroad, I would like to know more about studying abroad and scholarship opportunities."
 
 21. Free Counselling CTA
 
@@ -892,11 +892,11 @@ Schema markup where appropriate
 
 Suggested homepage title:
 
-Dearm Scholars Abroad Pvt. Ltd. | Study Abroad & Scholarship Consultancy
+Dream Scholars Abroad Pvt. Ltd. | Study Abroad & Scholarship Consultancy
 
 Suggested description:
 
-Dearm Scholars Abroad Pvt. Ltd. helps students explore study abroad opportunities, universities, courses and scholarship guidance with personalized counselling and application support.
+Dream Scholars Abroad Pvt. Ltd. helps students explore study abroad opportunities, universities, courses and scholarship guidance with personalized counselling and application support.
 
 25. Performance
 
@@ -994,7 +994,7 @@ Include:
 
 Company
 
-Dearm Scholars Abroad Pvt. Ltd.
+Dream Scholars Abroad Pvt. Ltd.
 
 Founder & Director
 
@@ -1060,7 +1060,7 @@ Add social media icons with editable links.
 
 Copyright:
 
-© 2026 Dearm Scholars Abroad Pvt. Ltd. All Rights Reserved.
+© 2026 Dream Scholars Abroad Pvt. Ltd. All Rights Reserved.
 
 30. Privacy & Legal Pages
 
@@ -1206,7 +1206,7 @@ Quick Enquiry Form
 
 Trust / Benefits
 
-About Dearm Scholars Abroad
+About Dream Scholars Abroad
 
 Founder & Director — Md Tahir Hussain
 
@@ -1282,7 +1282,7 @@ Website looks polished and production-ready
 
 Build the complete website with a premium international education consultancy look and feel.
 
-This project was developed from scratch by Dearm Scholars Abroad Pvt. Ltd.
+This project was developed from scratch by Dream Scholars Abroad Pvt. Ltd.
 
 ## Development
 

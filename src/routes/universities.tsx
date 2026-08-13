@@ -11,7 +11,7 @@ import { inputClass, selectClass } from "@/components/forms/fields";
 import { universities } from "@/data/universities";
 import { countries } from "@/data/countries";
 
-const title = "University Directory | Dearm Scholars Abroad";
+const title = "University Directory | Dream Scholars Abroad";
 const description =
   "Search a directory of universities by country, degree level, course, budget and scholarship availability, and get shortlisting guidance for your profile.";
 

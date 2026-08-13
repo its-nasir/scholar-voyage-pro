@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { siteConfig } from "@/config/site";
 
-/** Company logo mark with Dearm Scholars Abroad branding. */
+/** Company logo mark with Dream Scholars Abroad branding. */
 export function Logo({ variant = "default" }: { variant?: "default" | "light" }) {
   const isLight = variant === "light";
   return (
@@ -15,7 +15,7 @@ export function Logo({ variant = "default" }: { variant?: "default" | "light" })
         <span
           className={`font-display text-[15px] font-bold tracking-tight ${isLight ? "text-navy-foreground" : "text-foreground"}`}
         >
-          Dearm Scholars Abroad
+          Dream Scholars Abroad
         </span>
         <span className={`text-[11px] ${isLight ? "text-navy-foreground/70" : "text-muted-foreground"}`}>
           Pvt. Ltd. · Overseas Education

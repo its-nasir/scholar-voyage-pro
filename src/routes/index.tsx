@@ -19,7 +19,7 @@ import { testimonials } from "@/data/testimonials";
 import { blogPosts } from "@/data/blog";
 import { siteConfig } from "@/config/site";
 
-const title = "Study Abroad Consultancy | Dearm Scholars Abroad Pvt. Ltd.";
+const title = "Study Abroad Consultancy | Dream Scholars Abroad Pvt. Ltd.";
 const description =
   "Personalised study abroad counselling, university shortlisting, scholarship guidance and visa support for students planning to study in the UK, USA, Canada, Australia, Europe and more.";
 
@@ -109,7 +109,7 @@ function Home() {
             />
             <Button asChild variant="hero" size="lg" className="mt-7">
               <Link to="/about">
-                About Dearm Scholars Abroad <ArrowRight className="size-4" />
+                About Dream Scholars Abroad <ArrowRight className="size-4" />
               </Link>
             </Button>
           </div>

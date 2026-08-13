@@ -5,7 +5,7 @@ import { siteConfig } from "@/config/site";
 export const Route = createFileRoute("/disclaimer")({
   head: () =>
     legalHead({
-      title: "Disclaimer | Dearm Scholars Abroad",
+      title: "Disclaimer | Dream Scholars Abroad",
       description:
         "Important disclaimer about admission, scholarship and visa decisions, and about sample content published on this website.",
       path: "/disclaimer",

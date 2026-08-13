@@ -5,8 +5,8 @@ import { siteConfig } from "@/config/site";
 export const Route = createFileRoute("/cookie-policy")({
   head: () =>
     legalHead({
-      title: "Cookie Policy | Dearm Scholars Abroad",
-      description: "How cookies and similar technologies are used on the Dearm Scholars Abroad website.",
+      title: "Cookie Policy | Dream Scholars Abroad",
+      description: "How cookies and similar technologies are used on the Dream Scholars Abroad website.",
       path: "/cookie-policy",
     }),
   component: () => (

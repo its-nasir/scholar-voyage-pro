@@ -15,7 +15,7 @@ export const Route = createFileRoute("/services/$service")({
     if (!loaderData) {
       return { meta: [{ title: "Service unavailable" }, { name: "robots", content: "noindex" }] };
     }
-    const t = `${loaderData.service.title} | Dearm Scholars Abroad`;
+    const t = `${loaderData.service.title} | Dream Scholars Abroad`;
     return {
       meta: [
         { title: t },

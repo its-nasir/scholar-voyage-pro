@@ -35,13 +35,13 @@ import { TeamAccessPanel } from "@/components/admin/TeamAccessPanel";
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
-      { title: "Enquiry Dashboard | Dearm Scholars Abroad" },
+      { title: "Enquiry Dashboard | Dream Scholars Abroad" },
       {
         name: "description",
         content: "Internal dashboard to review and manage student enquiries received from the website.",
       },
       { name: "robots", content: "noindex, nofollow" },
-      { property: "og:title", content: "Enquiry Dashboard | Dearm Scholars Abroad" },
+      { property: "og:title", content: "Enquiry Dashboard | Dream Scholars Abroad" },
       { property: "og:description", content: "Internal enquiry management dashboard." },
     ],
   }),

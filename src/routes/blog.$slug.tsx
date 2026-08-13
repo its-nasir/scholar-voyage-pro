@@ -17,7 +17,7 @@ export const Route = createFileRoute("/blog/$slug")({
     const { post } = loaderData;
     return {
       meta: [
-        { title: `${post.title} | Dearm Scholars Abroad Blog` },
+        { title: `${post.title} | Dream Scholars Abroad Blog` },
         { name: "description", content: post.excerpt },
         { property: "og:title", content: post.title },
         { property: "og:description", content: post.excerpt },

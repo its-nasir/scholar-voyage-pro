@@ -43,7 +43,7 @@ export const textareaClass =
 export function ConsentNote() {
   return (
     <span className="text-xs leading-relaxed text-muted-foreground">
-      I agree to be contacted by Dearm Scholars Abroad Pvt. Ltd. regarding my study abroad enquiry, and I accept
+      I agree to be contacted by Dream Scholars Abroad Pvt. Ltd. regarding my study abroad enquiry, and I accept
       the privacy policy.
     </span>
   );

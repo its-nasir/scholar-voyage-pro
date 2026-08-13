@@ -18,7 +18,7 @@ export const Route = createFileRoute("/study-abroad/$country")({
     if (!loaderData) {
       return { meta: [{ title: "Destination unavailable" }, { name: "robots", content: "noindex" }] };
     }
-    const t = `Study in ${loaderData.country.name} | Dearm Scholars Abroad`;
+    const t = `Study in ${loaderData.country.name} | Dream Scholars Abroad`;
     const d = `${loaderData.country.tagline} Courses, intakes, entry requirements, scholarships and visa guidance for studying in ${loaderData.country.name}.`;
     return {
       meta: [

@@ -13,14 +13,14 @@ import { Logo } from "@/components/Logo";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Team Sign In | Dearm Scholars Abroad" },
+      { title: "Team Sign In | Dream Scholars Abroad" },
       {
         name: "description",
-        content: "Secure sign in for the Dearm Scholars Abroad counselling team to manage student enquiries.",
+        content: "Secure sign in for the Dream Scholars Abroad counselling team to manage student enquiries.",
       },
       { name: "robots", content: "noindex, nofollow" },
-      { property: "og:title", content: "Team Sign In | Dearm Scholars Abroad" },
-      { property: "og:description", content: "Secure sign in for the Dearm Scholars Abroad team." },
+      { property: "og:title", content: "Team Sign In | Dream Scholars Abroad" },
+      { property: "og:description", content: "Secure sign in for the Dream Scholars Abroad team." },
     ],
   }),
   component: AuthPage,
@@ -96,7 +96,7 @@ function AuthPage() {
               {mode === "signin" ? "Sign in" : "Create account"}
             </CardTitle>
             <CardDescription>
-              Enquiry dashboard for the Dearm Scholars Abroad counselling team.
+              Enquiry dashboard for the Dream Scholars Abroad counselling team.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-5">

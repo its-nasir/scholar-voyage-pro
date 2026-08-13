@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { CtaBand, PageHero, Section } from "@/components/sections";
 import { blogCategories, blogPosts } from "@/data/blog";
 
-const title = "Study Abroad Blog & Guides | Dearm Scholars Abroad";
+const title = "Study Abroad Blog & Guides | Dream Scholars Abroad";
 const description =
   "Articles and guides on study destinations, scholarships, English tests, university applications, visas and student life abroad.";
 

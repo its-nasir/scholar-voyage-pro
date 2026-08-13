@@ -6,16 +6,16 @@
 
 export const WHATSAPP_NUMBER = "447346595831"; // full number with country code, digits only
 export const WHATSAPP_MESSAGE =
-  "Hello Dearm Scholars Abroad, I would like to know more about studying abroad and scholarship opportunities.";
+  "Hello Dream Scholars Abroad, I would like to know more about studying abroad and scholarship opportunities.";
 
 export const siteConfig = {
-  name: "Dearm Scholars Abroad Pvt. Ltd.",
-  shortName: "Dearm Scholars Abroad",
+  name: "Dream Scholars Abroad Pvt. Ltd.",
+  shortName: "Dream Scholars Abroad",
   initials: "DSA",
   tagline: "Your Dream. Our Guidance. Your Future Abroad.",
   altTagline: "Guiding Students Towards Global Education.",
   description:
-    "Dearm Scholars Abroad Pvt. Ltd. helps students explore study abroad opportunities, universities, courses and scholarship guidance with personalized counselling and application support.",
+    "Dream Scholars Abroad Pvt. Ltd. helps students explore study abroad opportunities, universities, courses and scholarship guidance with personalized counselling and application support.",
   // PLACEHOLDERS — replace with verified company details
   contact: {
     addressLines: ["Office address to be updated", "City, State, PIN"],
@@ -36,7 +36,7 @@ export const siteConfig = {
     name: "Md Tahir Hussain",
     role: "Founder & Director",
     photoUrl: "", // PLACEHOLDER: add professional photograph URL
-    bio: "Md Tahir Hussain, Founder & Director of Dearm Scholars Abroad Pvt. Ltd., is committed to helping students access quality international education and make confident decisions about their academic and career journey.",
+    bio: "Md Tahir Hussain, Founder & Director of Dream Scholars Abroad Pvt. Ltd., is committed to helping students access quality international education and make confident decisions about their academic and career journey.",
     // Keep the fields below editable — do not publish unverified claims.
     qualifications: [] as string[],
     experience: "",

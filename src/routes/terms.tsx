@@ -5,9 +5,9 @@ import { siteConfig } from "@/config/site";
 export const Route = createFileRoute("/terms")({
   head: () =>
     legalHead({
-      title: "Terms & Conditions | Dearm Scholars Abroad",
+      title: "Terms & Conditions | Dream Scholars Abroad",
       description:
-        "Terms and conditions for using the Dearm Scholars Abroad Pvt. Ltd. website and consultancy services.",
+        "Terms and conditions for using the Dream Scholars Abroad Pvt. Ltd. website and consultancy services.",
       path: "/terms",
     }),
   component: () => (

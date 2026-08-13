@@ -6,7 +6,7 @@ import { AdmissionProcess, CtaBand, Disclaimer, PageHero, Section } from "@/comp
 import { CounsellingButton } from "@/components/CounsellingDialog";
 import { services } from "@/data/services";
 
-const title = "Our Services | Dearm Scholars Abroad";
+const title = "Our Services | Dream Scholars Abroad";
 const description =
   "Counselling, university shortlisting, application support, SOP and LOR guidance, scholarship assistance, visa guidance, accommodation and pre-departure support.";
 

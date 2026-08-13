@@ -8,9 +8,9 @@ import { WhatsAppGlyph } from "@/components/WhatsAppButton";
 import { generalFaqs } from "@/data/faqs";
 import { siteConfig, whatsappLink } from "@/config/site";
 
-const title = "Contact Us | Dearm Scholars Abroad Pvt. Ltd.";
+const title = "Contact Us | Dream Scholars Abroad Pvt. Ltd.";
 const description =
-  "Contact Dearm Scholars Abroad Pvt. Ltd. for free study abroad counselling. Call, email, message on WhatsApp or send an enquiry online.";
+  "Contact Dream Scholars Abroad Pvt. Ltd. for free study abroad counselling. Call, email, message on WhatsApp or send an enquiry online.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

@@ -5,9 +5,9 @@ import { siteConfig } from "@/config/site";
 export const Route = createFileRoute("/privacy-policy")({
   head: () =>
     legalHead({
-      title: "Privacy Policy | Dearm Scholars Abroad",
+      title: "Privacy Policy | Dream Scholars Abroad",
       description:
-        "How Dearm Scholars Abroad Pvt. Ltd. collects, uses and protects the information you share through enquiry and counselling forms.",
+        "How Dream Scholars Abroad Pvt. Ltd. collects, uses and protects the information you share through enquiry and counselling forms.",
       path: "/privacy-policy",
     }),
   component: () => (

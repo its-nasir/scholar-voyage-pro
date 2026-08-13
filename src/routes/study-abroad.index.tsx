@@ -6,7 +6,7 @@ import { CtaBand, Disclaimer, PageHero, Section } from "@/components/sections";
 import { CounsellingButton } from "@/components/CounsellingDialog";
 import { countries } from "@/data/countries";
 
-const title = "Study Abroad Destinations | Dearm Scholars Abroad";
+const title = "Study Abroad Destinations | Dream Scholars Abroad";
 const description =
   "Explore 10+ study abroad destinations including the UK, USA, Canada, Australia, Germany, Ireland, New Zealand, France, Italy and UAE with courses, intakes and scholarship guidance.";
 
