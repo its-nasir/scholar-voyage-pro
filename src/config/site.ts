@@ -4,7 +4,7 @@
  * social links and founder information. No UI changes required.
  */
 
-export const WHATSAPP_NUMBER = "910000000000"; // PLACEHOLDER: full number with country code, digits only
+export const WHATSAPP_NUMBER = "447346595831"; // full number with country code, digits only
 export const WHATSAPP_MESSAGE =
   "Hello Dearm Scholars Abroad, I would like to know more about studying abroad and scholarship opportunities.";
 
@@ -19,7 +19,7 @@ export const siteConfig = {
   // PLACEHOLDERS — replace with verified company details
   contact: {
     addressLines: ["Office address to be updated", "City, State, PIN"],
-    phone: "+91 00000 00000",
+    phone: "+44 7388 216 063",
     email: "info@example.com",
     whatsapp: WHATSAPP_NUMBER,
     workingHours: "Monday – Saturday, 10:00 AM – 6:00 PM",
