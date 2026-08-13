@@ -15,11 +15,11 @@ export function FloatingPaths({ position, count = 22, className }: FloatingPaths
     } ${216 - i * 6} ${152 - i * 5 * position} ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
       684 - i * 5 * position
     } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-    width: 0.8 + i * 0.06,
+    width: 0.7 + i * 0.05,
     // deterministic so server and client render the same values
     duration: 22 + ((i * 7) % 13),
     delay: (i % 6) * 0.6,
-    opacity: 0.18 + i * 0.025,
+    opacity: 0.45 + i * 0.02,
   }));
 
   return (
@@ -28,7 +28,7 @@ export function FloatingPaths({ position, count = 22, className }: FloatingPaths
         className="size-full text-current"
         viewBox="0 0 696 316"
         fill="none"
-        preserveAspectRatio="xMidYMid slice"
+        preserveAspectRatio="none"
       >
         {paths.map((path) => (
           <motion.path
@@ -38,10 +38,10 @@ export function FloatingPaths({ position, count = 22, className }: FloatingPaths
             strokeWidth={path.width}
             strokeLinecap="round"
             strokeOpacity={path.opacity}
-            initial={{ pathLength: 0.35, opacity: 0.5 }}
+            initial={{ pathLength: 0.35, opacity: 0.8 }}
             animate={{
               pathLength: 1,
-              opacity: [0.35, 0.9, 0.35],
+              opacity: [0.6, 1, 0.6],
               pathOffset: [0, 1, 0],
             }}
             transition={{
