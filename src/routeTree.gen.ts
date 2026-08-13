@@ -10,33 +10,81 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as StudyAbroadRouteImport } from './routes/study-abroad'
+import { Route as StudyAbroadIndexRouteImport } from './routes/study-abroad.index'
+import { Route as StudyAbroadCountryRouteImport } from './routes/study-abroad.$country'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudyAbroadRoute = StudyAbroadRouteImport.update({
+  id: '/study-abroad',
+  path: '/study-abroad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudyAbroadIndexRoute = StudyAbroadIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => StudyAbroadRoute,
+} as any)
+const StudyAbroadCountryRoute = StudyAbroadCountryRouteImport.update({
+  id: '/$country',
+  path: '/$country',
+  getParentRoute: () => StudyAbroadRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/study-abroad': typeof StudyAbroadRouteWithChildren
+  '/study-abroad/$country': typeof StudyAbroadCountryRoute
+  '/study-abroad/': typeof StudyAbroadIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/study-abroad/$country': typeof StudyAbroadCountryRoute
+  '/study-abroad': typeof StudyAbroadIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/study-abroad': typeof StudyAbroadRouteWithChildren
+  '/study-abroad/$country': typeof StudyAbroadCountryRoute
+  '/study-abroad/': typeof StudyAbroadIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/study-abroad'
+    | '/study-abroad/$country'
+    | '/study-abroad/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/about' | '/study-abroad/$country' | '/study-abroad'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/study-abroad'
+    | '/study-abroad/$country'
+    | '/study-abroad/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  StudyAbroadRoute: typeof StudyAbroadRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +96,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/study-abroad': {
+      id: '/study-abroad'
+      path: '/study-abroad'
+      fullPath: '/study-abroad'
+      preLoaderRoute: typeof StudyAbroadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/study-abroad/': {
+      id: '/study-abroad/'
+      path: '/'
+      fullPath: '/study-abroad/'
+      preLoaderRoute: typeof StudyAbroadIndexRouteImport
+      parentRoute: typeof StudyAbroadRoute
+    }
+    '/study-abroad/$country': {
+      id: '/study-abroad/$country'
+      path: '/$country'
+      fullPath: '/study-abroad/$country'
+      preLoaderRoute: typeof StudyAbroadCountryRouteImport
+      parentRoute: typeof StudyAbroadRoute
+    }
   }
 }
 
+interface StudyAbroadRouteChildren {
+  StudyAbroadCountryRoute: typeof StudyAbroadCountryRoute
+  StudyAbroadIndexRoute: typeof StudyAbroadIndexRoute
+}
+
+const StudyAbroadRouteChildren: StudyAbroadRouteChildren = {
+  StudyAbroadCountryRoute: StudyAbroadCountryRoute,
+  StudyAbroadIndexRoute: StudyAbroadIndexRoute,
+}
+
+const StudyAbroadRouteWithChildren = StudyAbroadRoute._addFileChildren(
+  StudyAbroadRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  StudyAbroadRoute: StudyAbroadRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
