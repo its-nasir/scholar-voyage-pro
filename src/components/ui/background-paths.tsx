@@ -19,8 +19,8 @@ function buildArcs(count: number, direction: 1 | -1) {
       d: `M${-160 - i * 18} ${y1} C ${VIEW_W * 0.3} ${y1 + lift}, ${VIEW_W * 0.68} ${y2 - lift}, ${
         VIEW_W + 160 + i * 18
       } ${y2}`,
-      width: 0.9 + i * 0.16,
-      opacity: 0.5 - i * 0.02,
+      width: 1.1 + i * 0.18,
+      opacity: 0.75 - i * 0.03,
       duration: 16 + ((i * 5) % 11),
       delay: (i % 5) * 0.9,
     };
@@ -77,7 +77,7 @@ export function BackgroundPaths({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "absolute inset-0 overflow-hidden [mask-image:radial-gradient(130%_110%_at_50%_45%,black_40%,transparent_92%)] motion-reduce:hidden",
+        "absolute inset-0 overflow-hidden [mask-image:linear-gradient(to_right,black,black_70%,transparent)] motion-reduce:hidden",
         className,
       )}
       aria-hidden="true"
