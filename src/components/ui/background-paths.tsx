@@ -15,11 +15,11 @@ export function FloatingPaths({ position, count = 22, className }: FloatingPaths
     } ${216 - i * 6} ${152 - i * 5 * position} ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
       684 - i * 5 * position
     } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-    width: 0.6 + i * 0.045,
+    width: 0.8 + i * 0.06,
     // deterministic so server and client render the same values
     duration: 22 + ((i * 7) % 13),
     delay: (i % 6) * 0.6,
-    opacity: 0.06 + i * 0.02,
+    opacity: 0.18 + i * 0.025,
   }));
 
   return (
@@ -41,7 +41,7 @@ export function FloatingPaths({ position, count = 22, className }: FloatingPaths
             initial={{ pathLength: 0.35, opacity: 0.5 }}
             animate={{
               pathLength: 1,
-              opacity: [0.25, 0.7, 0.25],
+              opacity: [0.35, 0.9, 0.35],
               pathOffset: [0, 1, 0],
             }}
             transition={{
