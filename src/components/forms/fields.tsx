@@ -11,8 +11,8 @@ export function FieldShell({
 }: {
   label: string;
   htmlFor: string;
-  error?: FieldError;
-  required?: boolean;
+  error?: FieldError | undefined;
+  required?: boolean | undefined;
   className?: string;
   children: ReactNode;
 }) {
@@ -49,7 +49,7 @@ export function ConsentNote() {
   );
 }
 
-export function SuccessPanel({ title, reference, onReset }: { title: string; reference?: string; onReset: () => void }) {
+export function SuccessPanel({ title, reference, onReset }: { title: string; reference?: string | undefined; onReset: () => void }) {
   return (
     <div
       role="status"
