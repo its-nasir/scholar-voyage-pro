@@ -13,14 +13,14 @@ function buildArcs(count: number, direction: 1 | -1) {
   return Array.from({ length: count }, (_, i) => {
     const y1 = clamp(VIEW_H * (0.05 + (i * 0.9) / count));
     const y2 = clamp(y1 - VIEW_H * 0.24 * direction);
-    const bow = 46 * direction;
+    const bow = 150 * direction + i * 8;
     return {
       id: `${direction}-${i}`,
       d: `M${-140 - i * 12} ${y1} C ${VIEW_W * 0.32} ${clamp(y1 - bow)}, ${VIEW_W * 0.7} ${clamp(
         y2 + bow,
       )}, ${VIEW_W + 140 + i * 12} ${y2}`,
-      width: 1.6 + i * 0.5,
-      opacity: 0.7 - i * 0.025,
+      width: 1.4 + i * 0.35,
+      opacity: 0.4 - i * 0.02,
       duration: 16 + ((i * 5) % 11),
       delay: (i % 5) * 0.9,
     };
@@ -78,13 +78,13 @@ export function BackgroundPaths({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "absolute inset-0 overflow-hidden [mask-image:linear-gradient(to_right,black,black_70%,transparent)] motion-reduce:hidden",
+        "absolute inset-0 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_45%,black)] motion-reduce:hidden",
         className,
       )}
       aria-hidden="true"
     >
-      <FloatingPaths direction={1} count={12} />
-      <FloatingPaths direction={-1} count={9} className="opacity-55" />
+      <FloatingPaths direction={1} count={8} />
+      <FloatingPaths direction={-1} count={6} className="opacity-60" />
     </div>
   );
 }
