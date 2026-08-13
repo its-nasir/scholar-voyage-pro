@@ -1,0 +1,178 @@
+export type University = {
+  id: string;
+  name: string;
+  countrySlug: string;
+  country: string;
+  location: string;
+  type: "Public" | "Private";
+  degreeLevels: string[];
+  popularCourses: string[];
+  scholarship: boolean;
+  budgetBand: "Under 10 Lakh INR" | "10 – 20 Lakh INR" | "20 – 35 Lakh INR" | "Above 35 Lakh INR";
+  logoText: string;
+};
+
+/**
+ * DEMO DATA — replace with verified partner/listed universities.
+ * Structure is intentionally flat so it can be swapped for API/CMS data.
+ */
+export const universities: University[] = [
+  {
+    id: "demo-uk-1",
+    name: "Demo Northern Business University",
+    countrySlug: "uk",
+    country: "United Kingdom",
+    location: "Manchester region",
+    type: "Public",
+    degreeLevels: ["Bachelors", "Masters", "MBA"],
+    popularCourses: ["MSc Finance", "MBA", "MSc Marketing"],
+    scholarship: true,
+    budgetBand: "20 – 35 Lakh INR",
+    logoText: "NB",
+  },
+  {
+    id: "demo-uk-2",
+    name: "Demo London Institute of Technology",
+    countrySlug: "uk",
+    country: "United Kingdom",
+    location: "London",
+    type: "Private",
+    degreeLevels: ["Masters", "PhD"],
+    popularCourses: ["MSc Data Science", "MSc Cyber Security"],
+    scholarship: false,
+    budgetBand: "Above 35 Lakh INR",
+    logoText: "LI",
+  },
+  {
+    id: "demo-us-1",
+    name: "Demo Midwest State University",
+    countrySlug: "usa",
+    country: "United States",
+    location: "Ohio region",
+    type: "Public",
+    degreeLevels: ["Bachelors", "Masters", "PhD"],
+    popularCourses: ["MS Computer Science", "MS Engineering Management"],
+    scholarship: true,
+    budgetBand: "20 – 35 Lakh INR",
+    logoText: "MS",
+  },
+  {
+    id: "demo-us-2",
+    name: "Demo Pacific Institute of Analytics",
+    countrySlug: "usa",
+    country: "United States",
+    location: "California region",
+    type: "Private",
+    degreeLevels: ["Masters"],
+    popularCourses: ["MS Data Analytics", "MS Artificial Intelligence"],
+    scholarship: false,
+    budgetBand: "Above 35 Lakh INR",
+    logoText: "PI",
+  },
+  {
+    id: "demo-ca-1",
+    name: "Demo Ontario Polytechnic College",
+    countrySlug: "canada",
+    country: "Canada",
+    location: "Toronto region",
+    type: "Public",
+    degreeLevels: ["Diploma / Foundation", "Bachelors"],
+    popularCourses: ["PG Diploma Business", "Computer Programming"],
+    scholarship: true,
+    budgetBand: "10 – 20 Lakh INR",
+    logoText: "OP",
+  },
+  {
+    id: "demo-ca-2",
+    name: "Demo Prairie University",
+    countrySlug: "canada",
+    country: "Canada",
+    location: "Alberta region",
+    type: "Public",
+    degreeLevels: ["Bachelors", "Masters"],
+    popularCourses: ["MSc Computer Science", "MEng"],
+    scholarship: true,
+    budgetBand: "20 – 35 Lakh INR",
+    logoText: "PU",
+  },
+  {
+    id: "demo-au-1",
+    name: "Demo Harbour City University",
+    countrySlug: "australia",
+    country: "Australia",
+    location: "Sydney region",
+    type: "Public",
+    degreeLevels: ["Bachelors", "Masters"],
+    popularCourses: ["Master of IT", "Master of Professional Accounting"],
+    scholarship: true,
+    budgetBand: "20 – 35 Lakh INR",
+    logoText: "HC",
+  },
+  {
+    id: "demo-de-1",
+    name: "Demo Technical University of Applied Sciences",
+    countrySlug: "germany",
+    country: "Germany",
+    location: "Bavaria region",
+    type: "Public",
+    degreeLevels: ["Bachelors", "Masters"],
+    popularCourses: ["MSc Mechanical Engineering", "MSc Data Engineering"],
+    scholarship: false,
+    budgetBand: "Under 10 Lakh INR",
+    logoText: "TU",
+  },
+  {
+    id: "demo-ie-1",
+    name: "Demo Dublin Tech University",
+    countrySlug: "ireland",
+    country: "Ireland",
+    location: "Dublin",
+    type: "Public",
+    degreeLevels: ["Masters"],
+    popularCourses: ["MSc Computing", "MSc Business Analytics"],
+    scholarship: true,
+    budgetBand: "20 – 35 Lakh INR",
+    logoText: "DT",
+  },
+  {
+    id: "demo-nz-1",
+    name: "Demo Southern Cross Institute",
+    countrySlug: "new-zealand",
+    country: "New Zealand",
+    location: "Auckland region",
+    type: "Public",
+    degreeLevels: ["Diploma / Foundation", "Masters"],
+    popularCourses: ["Master of IT", "PG Diploma in Business"],
+    scholarship: false,
+    budgetBand: "10 – 20 Lakh INR",
+    logoText: "SC",
+  },
+  {
+    id: "demo-ae-1",
+    name: "Demo Dubai International University",
+    countrySlug: "uae",
+    country: "Dubai / UAE",
+    location: "Dubai",
+    type: "Private",
+    degreeLevels: ["Bachelors", "MBA"],
+    popularCourses: ["BBA", "MBA", "Hospitality Management"],
+    scholarship: true,
+    budgetBand: "10 – 20 Lakh INR",
+    logoText: "DI",
+  },
+  {
+    id: "demo-fr-1",
+    name: "Demo Paris School of Management",
+    countrySlug: "france",
+    country: "France",
+    location: "Paris",
+    type: "Private",
+    degreeLevels: ["Masters", "MBA"],
+    popularCourses: ["MSc Management", "MSc International Business"],
+    scholarship: true,
+    budgetBand: "20 – 35 Lakh INR",
+    logoText: "PS",
+  },
+];
+
+export const universityTypes = ["Public", "Private"];
