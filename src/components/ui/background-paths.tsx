@@ -1,35 +1,69 @@
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export function FloatingPaths({ position, className }: { position: number; className?: string }) {
-  const paths = Array.from({ length: 36 }, (_, i) => ({
-    id: i,
-    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${380 - i * 5 * position} -${189 + i * 6} -${
-      312 - i * 5 * position
-    } ${216 - i * 6} ${152 - i * 5 * position} ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
-      684 - i * 5 * position
-    } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-    width: 0.5 + i * 0.03,
-  }));
+const VIEW_W = 1200;
+const VIEW_H = 600;
+
+/**
+ * Elegant sweeping "flight path" arcs, sized to always stay inside the hero.
+ * Deterministic values keep SSR and client markup identical.
+ */
+function buildArcs(count: number, direction: 1 | -1) {
+  const clamp = (v: number) => Math.min(VIEW_H * 0.98, Math.max(VIEW_H * 0.02, v));
+  return Array.from({ length: count }, (_, i) => {
+    const y1 = clamp(VIEW_H * (0.05 + (i * 0.9) / count));
+    const y2 = clamp(y1 - VIEW_H * 0.24 * direction);
+    const bow = 150 * direction + i * 8;
+    return {
+      id: `${direction}-${i}`,
+      d: `M${-140 - i * 12} ${y1} C ${VIEW_W * 0.32} ${clamp(y1 - bow)}, ${VIEW_W * 0.7} ${clamp(
+        y2 + bow,
+      )}, ${VIEW_W + 140 + i * 12} ${y2}`,
+      width: 1.4 + i * 0.35,
+      opacity: 0.4 - i * 0.02,
+      duration: 16 + ((i * 5) % 11),
+      delay: (i % 5) * 0.9,
+    };
+  });
+}
+
+
+export function FloatingPaths({
+  direction = 1,
+  count = 12,
+  className,
+}: {
+  direction?: 1 | -1;
+  count?: number;
+  className?: string;
+}) {
+  const arcs = buildArcs(count, direction);
 
   return (
     <div className={cn("pointer-events-none absolute inset-0", className)} aria-hidden="true">
-      <svg className="size-full text-current" viewBox="0 0 696 316" fill="none" preserveAspectRatio="none">
-        {paths.map((path) => (
+      <svg
+        className="size-full text-current"
+        viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
+        fill="none"
+        preserveAspectRatio="none"
+      >
+        {arcs.map((arc) => (
           <motion.path
-            key={path.id}
-            d={path.d}
+            key={arc.id}
+            d={arc.d}
             stroke="currentColor"
-            strokeWidth={path.width}
-            strokeOpacity={0.1 + path.id * 0.02}
-            initial={{ pathLength: 0.3, opacity: 0.6 }}
+            strokeWidth={arc.width}
+            strokeLinecap="round"
+            strokeOpacity={arc.opacity}
+            initial={{ pathLength: 0.45, pathOffset: 0, opacity: 0.7 }}
             animate={{
-              pathLength: 1,
-              opacity: [0.3, 0.6, 0.3],
-              pathOffset: [0, 1, 0],
+              pathLength: [0.35, 0.75, 0.35],
+              pathOffset: [0, 1],
+              opacity: [0.35, 1, 0.35],
             }}
             transition={{
-              duration: 20 + Math.random() * 10,
+              duration: arc.duration,
+              delay: arc.delay,
               repeat: Number.POSITIVE_INFINITY,
               ease: "linear",
             }}
@@ -42,9 +76,15 @@ export function FloatingPaths({ position, className }: { position: number; class
 
 export function BackgroundPaths({ className }: { className?: string }) {
   return (
-    <div className={cn("absolute inset-0 overflow-hidden", className)} aria-hidden="true">
-      <FloatingPaths position={1} />
-      <FloatingPaths position={-1} />
+    <div
+      className={cn(
+        "absolute inset-0 overflow-hidden [mask-image:linear-gradient(to_right,transparent_5%,black_55%,black)] motion-reduce:hidden",
+        className,
+      )}
+      aria-hidden="true"
+    >
+      <FloatingPaths direction={1} count={8} />
+      <FloatingPaths direction={-1} count={6} className="opacity-60" />
     </div>
   );
 }

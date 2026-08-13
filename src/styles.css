@@ -203,6 +203,12 @@
   background-image: var(--gradient-soft);
 }
 
+@utility bg-gradient-gold {
+  background-image: var(--gradient-gold);
+}
+
+
+
 @utility text-gradient-gold {
   background-image: var(--gradient-gold);
   background-clip: text;

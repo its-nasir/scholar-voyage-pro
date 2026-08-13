@@ -50,6 +50,14 @@ function Home() {
         />
         <div className="absolute inset-0 bg-gradient-navy opacity-80" aria-hidden="true" />
         <BackgroundPaths className="text-gold/70" />
+        <div
+          className="absolute -top-40 left-1/2 size-[38rem] -translate-x-1/2 rounded-full bg-royal/25 blur-[120px]"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute -bottom-32 right-0 size-[26rem] rounded-full bg-gold/15 blur-[110px]"
+          aria-hidden="true"
+        />
         <div className="container-page relative grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-2">
           <div className="animate-fade-up">
             <p className="inline-flex rounded-full border border-navy-foreground/25 bg-navy-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-gold">
