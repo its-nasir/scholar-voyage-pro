@@ -30,6 +30,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Logo } from "@/components/Logo";
+import { TeamAccessPanel } from "@/components/admin/TeamAccessPanel";
 
 export const Route = createFileRoute("/admin")({
   head: () => ({
@@ -96,6 +97,8 @@ function AdminPage() {
   const [checking, setChecking] = useState(true);
   const [allowed, setAllowed] = useState(false);
   const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [userId, setUserId] = useState<string | null>(null);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
@@ -130,6 +133,7 @@ function AdminPage() {
       }
       if (cancelled) return;
       setUserEmail(session.user.email ?? null);
+      setUserId(session.user.id);
 
       const { data: roles } = await supabase
         .from("user_roles")
@@ -138,6 +142,7 @@ function AdminPage() {
 
       const isStaff = (roles ?? []).some((r) => r.role === "admin" || r.role === "staff");
       if (cancelled) return;
+      setIsAdmin((roles ?? []).some((r) => r.role === "admin"));
       setAllowed(isStaff);
       setChecking(false);
       if (isStaff) void loadLeads();
@@ -385,6 +390,7 @@ function AdminPage() {
             </div>
           </CardContent>
         </Card>
+        {isAdmin && <TeamAccessPanel currentUserId={userId} />}
       </div>
 
       <Dialog open={!!active} onOpenChange={(open) => !open && setActive(null)}>
