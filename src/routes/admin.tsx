@@ -243,7 +243,7 @@ function AdminPage() {
       <header className="border-b bg-background">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-4">
           <div className="flex items-center gap-4">
-            <Logo variant="dark" />
+            <Logo />
             <span className="hidden text-sm text-muted-foreground sm:inline">Enquiry Dashboard</span>
           </div>
           <div className="flex items-center gap-3 text-sm">
