@@ -19,7 +19,7 @@ function buildArcs(count: number, direction: 1 | -1) {
       d: `M${-140 - i * 12} ${y1} C ${VIEW_W * 0.32} ${clamp(y1 - bow)}, ${VIEW_W * 0.7} ${clamp(
         y2 + bow,
       )}, ${VIEW_W + 140 + i * 12} ${y2}`,
-      width: 1.1 + i * 0.16,
+      width: 1.6 + i * 0.5,
       opacity: 0.7 - i * 0.025,
       duration: 16 + ((i * 5) % 11),
       delay: (i % 5) * 0.9,
