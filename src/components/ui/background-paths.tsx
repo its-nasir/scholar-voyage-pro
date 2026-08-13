@@ -1,52 +1,68 @@
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-type FloatingPathsProps = {
-  position: number;
+const VIEW_W = 1200;
+const VIEW_H = 600;
+
+/**
+ * Elegant sweeping "flight path" arcs, sized to always stay inside the hero.
+ * Deterministic values keep SSR and client markup identical.
+ */
+function buildArcs(count: number, direction: 1 | -1) {
+  return Array.from({ length: count }, (_, i) => {
+    const spread = i * (VIEW_H / (count + 4));
+    const y1 = direction === 1 ? VIEW_H * 0.92 - spread : VIEW_H * 0.08 + spread;
+    const y2 = direction === 1 ? VIEW_H * 0.04 + spread * 0.35 : VIEW_H * 0.96 - spread * 0.35;
+    const lift = direction === 1 ? -140 - i * 22 : 140 + i * 22;
+    return {
+      id: `${direction}-${i}`,
+      d: `M${-160 - i * 18} ${y1} C ${VIEW_W * 0.3} ${y1 + lift}, ${VIEW_W * 0.68} ${y2 - lift}, ${
+        VIEW_W + 160 + i * 18
+      } ${y2}`,
+      width: 0.9 + i * 0.16,
+      opacity: 0.5 - i * 0.02,
+      duration: 16 + ((i * 5) % 11),
+      delay: (i % 5) * 0.9,
+    };
+  });
+}
+
+export function FloatingPaths({
+  direction = 1,
+  count = 12,
+  className,
+}: {
+  direction?: 1 | -1;
   count?: number;
   className?: string;
-};
-
-export function FloatingPaths({ position, count = 22, className }: FloatingPathsProps) {
-  const paths = Array.from({ length: count }, (_, i) => ({
-    id: i,
-    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${380 - i * 5 * position} -${189 + i * 6} -${
-      312 - i * 5 * position
-    } ${216 - i * 6} ${152 - i * 5 * position} ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
-      684 - i * 5 * position
-    } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-    width: 0.7 + i * 0.05,
-    // deterministic so server and client render the same values
-    duration: 22 + ((i * 7) % 13),
-    delay: (i % 6) * 0.6,
-    opacity: 0.45 + i * 0.02,
-  }));
+}) {
+  const arcs = buildArcs(count, direction);
 
   return (
     <div className={cn("pointer-events-none absolute inset-0", className)} aria-hidden="true">
       <svg
         className="size-full text-current"
-        viewBox="0 0 696 316"
+        viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
         fill="none"
         preserveAspectRatio="none"
       >
-        {paths.map((path) => (
+        {arcs.map((arc) => (
           <motion.path
-            key={path.id}
-            d={path.d}
+            key={arc.id}
+            d={arc.d}
             stroke="currentColor"
-            strokeWidth={path.width}
+            strokeWidth={arc.width}
             strokeLinecap="round"
-            strokeOpacity={path.opacity}
-            initial={{ pathLength: 0.35, opacity: 0.8 }}
+            strokeOpacity={arc.opacity}
+            initial={{ pathLength: 0.45, pathOffset: 0, opacity: 0.7 }}
             animate={{
-              pathLength: 1,
-              opacity: [0.6, 1, 0.6],
-              pathOffset: [0, 1, 0],
+              pathLength: [0.35, 0.75, 0.35],
+              pathOffset: [0, 1],
+              opacity: [0.35, 1, 0.35],
             }}
             transition={{
-              duration: path.duration,
-              delay: path.delay,
+              duration: arc.duration,
+              delay: arc.delay,
               repeat: Number.POSITIVE_INFINITY,
               ease: "linear",
             }}
@@ -61,13 +77,13 @@ export function BackgroundPaths({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "absolute inset-0 overflow-hidden [mask-image:radial-gradient(120%_100%_at_50%_40%,black_35%,transparent_85%)] motion-reduce:hidden",
+        "absolute inset-0 overflow-hidden [mask-image:radial-gradient(130%_110%_at_50%_45%,black_40%,transparent_92%)] motion-reduce:hidden",
         className,
       )}
       aria-hidden="true"
     >
-      <FloatingPaths position={1} count={22} className="opacity-90" />
-      <FloatingPaths position={-1} count={16} className="opacity-60 blur-[0.5px]" />
+      <FloatingPaths direction={1} count={12} />
+      <FloatingPaths direction={-1} count={9} className="opacity-55" />
     </div>
   );
 }
