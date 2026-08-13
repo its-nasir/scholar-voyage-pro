@@ -1,19 +1,33 @@
 import type { LeadInput } from "./leads.schema";
 
 /**
- * Lead sink. Currently records the lead server-side and returns a reference id.
- *
- * INTEGRATION POINTS (add here without touching any UI code):
- *  - Email notification (transactional email provider)
- *  - CRM push
- *  - Google Sheets append
- *  - Database insert (for the future admin dashboard)
- *  - WhatsApp Business API notification
+ * Lead sink. Persists the lead in the database and returns a reference id.
+ * Uses the service-role client so website visitors never need table access.
  */
 export async function recordLead(lead: LeadInput) {
   const reference = `DSA-${Date.now().toString(36).toUpperCase()}`;
+  const p = lead.payload as Record<string, string | boolean>;
 
-  // Minimal, non-sensitive server log for traceability.
+  const str = (key: string) => (typeof p[key] === "string" ? (p[key] as string) : null);
+
+  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+  const { error } = await supabaseAdmin.from("leads").insert({
+    reference,
+    type: lead.type,
+    source: lead.source ?? null,
+    full_name: str("fullName"),
+    email: str("email"),
+    phone: str("phone"),
+    country: str("country"),
+    course: str("course"),
+    payload: p,
+  });
+
+  if (error) {
+    console.error("[lead] insert failed", error.message);
+    throw new Error("We could not save your enquiry. Please try again or contact us on WhatsApp.");
+  }
+
   console.info("[lead]", { type: lead.type, source: lead.source ?? "unknown", reference });
 
   return {
