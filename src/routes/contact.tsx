@@ -23,7 +23,7 @@ export const Route = createFileRoute("/contact")({
     ],
     links: [{ rel: "canonical", href: "/contact" }],
   }),
-  component: Contact;
+  component: Contact,
 });
 
 function Contact() {
