@@ -86,7 +86,7 @@ function AuthPage() {
     <main className="flex min-h-screen items-center justify-center bg-gradient-navy px-4 py-16">
       <div className="w-full max-w-md space-y-6">
         <div className="flex flex-col items-center gap-3 text-center">
-          <Logo />
+          <Logo variant="light" />
           <p className="text-sm text-primary-foreground/70">Internal team access</p>
         </div>
 
