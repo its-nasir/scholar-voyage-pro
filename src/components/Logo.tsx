@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { siteConfig } from "@/config/site";
-import logoAsset from "@/assets/dearmscholars-logo.png.asset.json";
 
 /** Company logo mark with Dearm Scholars Abroad branding. */
 export function Logo({ variant = "default" }: { variant?: "default" | "light" }) {
@@ -8,7 +7,7 @@ export function Logo({ variant = "default" }: { variant?: "default" | "light" })
   return (
     <Link to="/" className="group flex items-center gap-3" aria-label={`${siteConfig.name} home`}>
       <img
-        src={logoAsset.url}
+        src="/favicon.png"
         alt={`${siteConfig.shortName} logo`}
         className="size-11 shrink-0 rounded-xl bg-white object-contain p-1 shadow-card"
       />

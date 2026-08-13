@@ -1282,17 +1282,7 @@ Website looks polished and production-ready
 
 Build the complete website with a premium international education consultancy look and feel.
 
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://scholar-voyage-pro.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/4191cc98-05bd-4beb-a5f0-1ceacbd117e2).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+This project was developed from scratch by Dearm Scholars Abroad Pvt. Ltd.
 
 ## Development
 
