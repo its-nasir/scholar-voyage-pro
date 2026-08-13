@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import heroImage from "@/assets/hero-students.jpg";
 import { Button } from "@/components/ui/button";
+import { BackgroundPaths } from "@/components/ui/background-paths";
 import { CounsellingButton } from "@/components/CounsellingDialog";
 import { EnquiryForm } from "@/components/forms/EnquiryForm";
 import { Icon } from "@/components/Icon";
