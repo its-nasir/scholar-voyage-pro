@@ -157,4 +157,3 @@ function Fact({ label, value }: { label: string; value: string }) {
   );
 }
 
-export const allCountrySlugs = countries.map((c) => c.slug);

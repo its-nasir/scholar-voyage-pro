@@ -11,12 +11,20 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as CoursesRouteImport } from './routes/courses'
+import { Route as DisclaimerRouteImport } from './routes/disclaimer'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ScholarshipsRouteImport } from './routes/scholarships'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as StudyAbroadRouteImport } from './routes/study-abroad'
 import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as UniversitiesRouteImport } from './routes/universities'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesServiceRouteImport } from './routes/services.$service'
 import { Route as StudyAbroadIndexRouteImport } from './routes/study-abroad.index'
@@ -32,9 +40,34 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiePolicyRoute = CookiePolicyRouteImport.update({
+  id: '/cookie-policy',
+  path: '/cookie-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CoursesRoute = CoursesRouteImport.update({
   id: '/courses',
   path: '/courses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DisclaimerRoute = DisclaimerRouteImport.update({
+  id: '/disclaimer',
+  path: '/disclaimer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ScholarshipsRoute = ScholarshipsRouteImport.update({
@@ -57,10 +90,25 @@ const SuccessStoriesRoute = SuccessStoriesRouteImport.update({
   path: '/success-stories',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UniversitiesRoute = UniversitiesRouteImport.update({
   id: '/universities',
   path: '/universities',
   getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogRoute,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/',
@@ -86,26 +134,41 @@ const StudyAbroadCountryRoute = StudyAbroadCountryRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/courses': typeof CoursesRoute
+  '/disclaimer': typeof DisclaimerRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/scholarships': typeof ScholarshipsRoute
   '/services': typeof ServicesRouteWithChildren
   '/study-abroad': typeof StudyAbroadRouteWithChildren
   '/success-stories': typeof SuccessStoriesRoute
+  '/terms': typeof TermsRoute
   '/universities': typeof UniversitiesRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/$service': typeof ServicesServiceRoute
   '/study-abroad/$country': typeof StudyAbroadCountryRoute
+  '/blog/': typeof BlogIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/study-abroad/': typeof StudyAbroadIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/courses': typeof CoursesRoute
+  '/disclaimer': typeof DisclaimerRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/scholarships': typeof ScholarshipsRoute
   '/success-stories': typeof SuccessStoriesRoute
+  '/terms': typeof TermsRoute
   '/universities': typeof UniversitiesRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/$service': typeof ServicesServiceRoute
   '/study-abroad/$country': typeof StudyAbroadCountryRoute
+  '/blog': typeof BlogIndexRoute
   '/services': typeof ServicesIndexRoute
   '/study-abroad': typeof StudyAbroadIndexRoute
 }
@@ -113,14 +176,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/courses': typeof CoursesRoute
+  '/disclaimer': typeof DisclaimerRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/scholarships': typeof ScholarshipsRoute
   '/services': typeof ServicesRouteWithChildren
   '/study-abroad': typeof StudyAbroadRouteWithChildren
   '/success-stories': typeof SuccessStoriesRoute
+  '/terms': typeof TermsRoute
   '/universities': typeof UniversitiesRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/$service': typeof ServicesServiceRoute
   '/study-abroad/$country': typeof StudyAbroadCountryRoute
+  '/blog/': typeof BlogIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/study-abroad/': typeof StudyAbroadIndexRoute
 }
@@ -129,40 +200,63 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/blog'
+    | '/contact'
+    | '/cookie-policy'
     | '/courses'
+    | '/disclaimer'
+    | '/privacy-policy'
     | '/scholarships'
     | '/services'
     | '/study-abroad'
     | '/success-stories'
+    | '/terms'
     | '/universities'
+    | '/blog/$slug'
     | '/services/$service'
     | '/study-abroad/$country'
+    | '/blog/'
     | '/services/'
     | '/study-abroad/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/contact'
+    | '/cookie-policy'
     | '/courses'
+    | '/disclaimer'
+    | '/privacy-policy'
     | '/scholarships'
     | '/success-stories'
+    | '/terms'
     | '/universities'
+    | '/blog/$slug'
     | '/services/$service'
     | '/study-abroad/$country'
+    | '/blog'
     | '/services'
     | '/study-abroad'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/blog'
+    | '/contact'
+    | '/cookie-policy'
     | '/courses'
+    | '/disclaimer'
+    | '/privacy-policy'
     | '/scholarships'
     | '/services'
     | '/study-abroad'
     | '/success-stories'
+    | '/terms'
     | '/universities'
+    | '/blog/$slug'
     | '/services/$service'
     | '/study-abroad/$country'
+    | '/blog/'
     | '/services/'
     | '/study-abroad/'
   fileRoutesById: FileRoutesById
@@ -170,11 +264,17 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BlogRoute: typeof BlogRouteWithChildren
+  ContactRoute: typeof ContactRoute
+  CookiePolicyRoute: typeof CookiePolicyRoute
   CoursesRoute: typeof CoursesRoute
+  DisclaimerRoute: typeof DisclaimerRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ScholarshipsRoute: typeof ScholarshipsRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   StudyAbroadRoute: typeof StudyAbroadRouteWithChildren
   SuccessStoriesRoute: typeof SuccessStoriesRoute
+  TermsRoute: typeof TermsRoute
   UniversitiesRoute: typeof UniversitiesRoute
 }
 
@@ -194,11 +294,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookie-policy': {
+      id: '/cookie-policy'
+      path: '/cookie-policy'
+      fullPath: '/cookie-policy'
+      preLoaderRoute: typeof CookiePolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/courses': {
       id: '/courses'
       path: '/courses'
       fullPath: '/courses'
       preLoaderRoute: typeof CoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disclaimer': {
+      id: '/disclaimer'
+      path: '/disclaimer'
+      fullPath: '/disclaimer'
+      preLoaderRoute: typeof DisclaimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/scholarships': {
@@ -229,12 +364,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SuccessStoriesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/universities': {
       id: '/universities'
       path: '/universities'
       fullPath: '/universities'
       preLoaderRoute: typeof UniversitiesRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
     }
     '/services/': {
       id: '/services/'
@@ -267,6 +423,18 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
 interface ServicesRouteChildren {
   ServicesServiceRoute: typeof ServicesServiceRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
@@ -298,11 +466,17 @@ const StudyAbroadRouteWithChildren = StudyAbroadRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BlogRoute: BlogRouteWithChildren,
+  ContactRoute: ContactRoute,
+  CookiePolicyRoute: CookiePolicyRoute,
   CoursesRoute: CoursesRoute,
+  DisclaimerRoute: DisclaimerRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   ScholarshipsRoute: ScholarshipsRoute,
   ServicesRoute: ServicesRouteWithChildren,
   StudyAbroadRoute: StudyAbroadRouteWithChildren,
   SuccessStoriesRoute: SuccessStoriesRoute,
+  TermsRoute: TermsRoute,
   UniversitiesRoute: UniversitiesRoute,
 }
 export const routeTree = rootRouteImport
