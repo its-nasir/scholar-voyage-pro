@@ -78,7 +78,7 @@ export function BackgroundPaths({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "absolute inset-0 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_45%,black)] motion-reduce:hidden",
+        "absolute inset-0 overflow-hidden [mask-image:linear-gradient(to_right,transparent_5%,black_55%,black)] motion-reduce:hidden",
         className,
       )}
       aria-hidden="true"

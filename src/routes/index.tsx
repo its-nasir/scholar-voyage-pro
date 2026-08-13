@@ -49,7 +49,7 @@ function Home() {
           className="absolute inset-0 size-full object-cover opacity-30"
         />
         <div className="absolute inset-0 bg-gradient-navy opacity-80" aria-hidden="true" />
-        <BackgroundPaths className="text-gold" />
+        <BackgroundPaths className="text-gold/70" />
         <div
           className="absolute -top-40 left-1/2 size-[38rem] -translate-x-1/2 rounded-full bg-royal/25 blur-[120px]"
           aria-hidden="true"
