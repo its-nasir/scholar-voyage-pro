@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import heroImage from "@/assets/hero-students.jpg";
 import { Button } from "@/components/ui/button";
+import { BackgroundPaths } from "@/components/ui/background-paths";
 import { CounsellingButton } from "@/components/CounsellingDialog";
 import { EnquiryForm } from "@/components/forms/EnquiryForm";
 import { Icon } from "@/components/Icon";
@@ -48,6 +49,7 @@ function Home() {
           className="absolute inset-0 size-full object-cover opacity-30"
         />
         <div className="absolute inset-0 bg-gradient-navy opacity-80" aria-hidden="true" />
+        <BackgroundPaths className="text-gold/70" />
         <div className="container-page relative grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-2">
           <div className="animate-fade-up">
             <p className="inline-flex rounded-full border border-navy-foreground/25 bg-navy-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-gold">
