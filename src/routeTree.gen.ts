@@ -11,7 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as CoursesRouteImport } from './routes/courses'
+import { Route as ScholarshipsRouteImport } from './routes/scholarships'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as StudyAbroadRouteImport } from './routes/study-abroad'
+import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
+import { Route as UniversitiesRouteImport } from './routes/universities'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesServiceRouteImport } from './routes/services.$service'
 import { Route as StudyAbroadIndexRouteImport } from './routes/study-abroad.index'
 import { Route as StudyAbroadCountryRouteImport } from './routes/study-abroad.$country'
 
@@ -25,10 +32,45 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CoursesRoute = CoursesRouteImport.update({
+  id: '/courses',
+  path: '/courses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScholarshipsRoute = ScholarshipsRouteImport.update({
+  id: '/scholarships',
+  path: '/scholarships',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StudyAbroadRoute = StudyAbroadRouteImport.update({
   id: '/study-abroad',
   path: '/study-abroad',
   getParentRoute: () => rootRouteImport,
+} as any)
+const SuccessStoriesRoute = SuccessStoriesRouteImport.update({
+  id: '/success-stories',
+  path: '/success-stories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UniversitiesRoute = UniversitiesRouteImport.update({
+  id: '/universities',
+  path: '/universities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesServiceRoute = ServicesServiceRouteImport.update({
+  id: '/$service',
+  path: '/$service',
+  getParentRoute: () => ServicesRoute,
 } as any)
 const StudyAbroadIndexRoute = StudyAbroadIndexRouteImport.update({
   id: '/',
@@ -44,22 +86,42 @@ const StudyAbroadCountryRoute = StudyAbroadCountryRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/courses': typeof CoursesRoute
+  '/scholarships': typeof ScholarshipsRoute
+  '/services': typeof ServicesRouteWithChildren
   '/study-abroad': typeof StudyAbroadRouteWithChildren
+  '/success-stories': typeof SuccessStoriesRoute
+  '/universities': typeof UniversitiesRoute
+  '/services/$service': typeof ServicesServiceRoute
   '/study-abroad/$country': typeof StudyAbroadCountryRoute
+  '/services/': typeof ServicesIndexRoute
   '/study-abroad/': typeof StudyAbroadIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/courses': typeof CoursesRoute
+  '/scholarships': typeof ScholarshipsRoute
+  '/success-stories': typeof SuccessStoriesRoute
+  '/universities': typeof UniversitiesRoute
+  '/services/$service': typeof ServicesServiceRoute
   '/study-abroad/$country': typeof StudyAbroadCountryRoute
+  '/services': typeof ServicesIndexRoute
   '/study-abroad': typeof StudyAbroadIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/courses': typeof CoursesRoute
+  '/scholarships': typeof ScholarshipsRoute
+  '/services': typeof ServicesRouteWithChildren
   '/study-abroad': typeof StudyAbroadRouteWithChildren
+  '/success-stories': typeof SuccessStoriesRoute
+  '/universities': typeof UniversitiesRoute
+  '/services/$service': typeof ServicesServiceRoute
   '/study-abroad/$country': typeof StudyAbroadCountryRoute
+  '/services/': typeof ServicesIndexRoute
   '/study-abroad/': typeof StudyAbroadIndexRoute
 }
 export interface FileRouteTypes {
@@ -67,24 +129,53 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/courses'
+    | '/scholarships'
+    | '/services'
     | '/study-abroad'
+    | '/success-stories'
+    | '/universities'
+    | '/services/$service'
     | '/study-abroad/$country'
+    | '/services/'
     | '/study-abroad/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/study-abroad/$country' | '/study-abroad'
+  to:
+    | '/'
+    | '/about'
+    | '/courses'
+    | '/scholarships'
+    | '/success-stories'
+    | '/universities'
+    | '/services/$service'
+    | '/study-abroad/$country'
+    | '/services'
+    | '/study-abroad'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/courses'
+    | '/scholarships'
+    | '/services'
     | '/study-abroad'
+    | '/success-stories'
+    | '/universities'
+    | '/services/$service'
     | '/study-abroad/$country'
+    | '/services/'
     | '/study-abroad/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CoursesRoute: typeof CoursesRoute
+  ScholarshipsRoute: typeof ScholarshipsRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
   StudyAbroadRoute: typeof StudyAbroadRouteWithChildren
+  SuccessStoriesRoute: typeof SuccessStoriesRoute
+  UniversitiesRoute: typeof UniversitiesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -103,12 +194,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/courses': {
+      id: '/courses'
+      path: '/courses'
+      fullPath: '/courses'
+      preLoaderRoute: typeof CoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scholarships': {
+      id: '/scholarships'
+      path: '/scholarships'
+      fullPath: '/scholarships'
+      preLoaderRoute: typeof ScholarshipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/study-abroad': {
       id: '/study-abroad'
       path: '/study-abroad'
       fullPath: '/study-abroad'
       preLoaderRoute: typeof StudyAbroadRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/success-stories': {
+      id: '/success-stories'
+      path: '/success-stories'
+      fullPath: '/success-stories'
+      preLoaderRoute: typeof SuccessStoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/universities': {
+      id: '/universities'
+      path: '/universities'
+      fullPath: '/universities'
+      preLoaderRoute: typeof UniversitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/$service': {
+      id: '/services/$service'
+      path: '/$service'
+      fullPath: '/services/$service'
+      preLoaderRoute: typeof ServicesServiceRouteImport
+      parentRoute: typeof ServicesRoute
     }
     '/study-abroad/': {
       id: '/study-abroad/'
@@ -127,6 +267,20 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface ServicesRouteChildren {
+  ServicesServiceRoute: typeof ServicesServiceRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesServiceRoute: ServicesServiceRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
+
 interface StudyAbroadRouteChildren {
   StudyAbroadCountryRoute: typeof StudyAbroadCountryRoute
   StudyAbroadIndexRoute: typeof StudyAbroadIndexRoute
@@ -144,7 +298,12 @@ const StudyAbroadRouteWithChildren = StudyAbroadRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CoursesRoute: CoursesRoute,
+  ScholarshipsRoute: ScholarshipsRoute,
+  ServicesRoute: ServicesRouteWithChildren,
   StudyAbroadRoute: StudyAbroadRouteWithChildren,
+  SuccessStoriesRoute: SuccessStoriesRoute,
+  UniversitiesRoute: UniversitiesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
