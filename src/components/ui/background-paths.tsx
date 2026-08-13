@@ -9,23 +9,24 @@ const VIEW_H = 600;
  * Deterministic values keep SSR and client markup identical.
  */
 function buildArcs(count: number, direction: 1 | -1) {
+  const clamp = (v: number) => Math.min(VIEW_H * 0.98, Math.max(VIEW_H * 0.02, v));
   return Array.from({ length: count }, (_, i) => {
-    const spread = i * (VIEW_H / (count + 4));
-    const y1 = direction === 1 ? VIEW_H * 0.92 - spread : VIEW_H * 0.08 + spread;
-    const y2 = direction === 1 ? VIEW_H * 0.04 + spread * 0.35 : VIEW_H * 0.96 - spread * 0.35;
-    const lift = direction === 1 ? -140 - i * 22 : 140 + i * 22;
+    const y1 = clamp(VIEW_H * (0.05 + (i * 0.9) / count));
+    const y2 = clamp(y1 - VIEW_H * 0.24 * direction);
+    const bow = 46 * direction;
     return {
       id: `${direction}-${i}`,
-      d: `M${-160 - i * 18} ${y1} C ${VIEW_W * 0.3} ${y1 + lift}, ${VIEW_W * 0.68} ${y2 - lift}, ${
-        VIEW_W + 160 + i * 18
-      } ${y2}`,
-      width: 1.1 + i * 0.18,
-      opacity: 0.75 - i * 0.03,
+      d: `M${-140 - i * 12} ${y1} C ${VIEW_W * 0.32} ${clamp(y1 - bow)}, ${VIEW_W * 0.7} ${clamp(
+        y2 + bow,
+      )}, ${VIEW_W + 140 + i * 12} ${y2}`,
+      width: 1.1 + i * 0.16,
+      opacity: 0.7 - i * 0.025,
       duration: 16 + ((i * 5) % 11),
       delay: (i % 5) * 0.9,
     };
   });
 }
+
 
 export function FloatingPaths({
   direction = 1,
