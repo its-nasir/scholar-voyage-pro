@@ -15,12 +15,12 @@ export const siteConfig = {
   tagline: "Your Dream. Our Guidance. Your Future Abroad.",
   altTagline: "Guiding Students Towards Global Education.",
   description:
-    "Dream Scholars Abroad Pvt. Ltd. helps students explore study abroad opportunities, universities, courses and scholarship guidance with personalized counselling and application support.",
+    "Dream Scholars Abroad Pvt. Ltd. helps students explore study abroad opportunities, universities, courses and scholarship guidance with personalized counselling and application Help.",
   // PLACEHOLDERS — replace with verified company details
   contact: {
-    addressLines: ["Office address to be updated", "City, State, PIN"],
-    phone: "+44 7388 216 063",
-    email: "info@example.com",
+    addressLines: ["Office address to be updated", "Beside Integral University, Kurshi Road, Lucknow, Uttar Pradesh, India, 226026"],
+    phone: "+917388216063",
+    email: "dreamscholarsabroad@gmail.com",
     whatsapp: WHATSAPP_NUMBER,
     workingHours: "Monday – Saturday, 10:00 AM – 6:00 PM",
     mapsEmbedUrl: "", // PLACEHOLDER: paste Google Maps embed URL

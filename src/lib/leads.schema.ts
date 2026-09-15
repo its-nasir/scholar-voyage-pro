@@ -22,21 +22,23 @@ const phone = z
   .regex(/^[0-9+\-() ]+$/, { message: "Phone can contain digits and + - ( ) only" });
 
 const optionalText = (max = 500) => z.string().trim().max(max).optional().or(z.literal(""));
+const optionalName = name.optional().or(z.literal(""));
+const optionalPhone = phone.optional().or(z.literal(""));
 
 export const leadTypes = ["enquiry", "counselling", "contact", "scholarship", "course", "story"] as const;
 export type LeadType = (typeof leadTypes)[number];
 
 export const enquirySchema = z.object({
-  fullName: name,
-  email,
-  phone,
-  country: z.string().trim().min(1, { message: "Select a preferred country" }),
-  course: z.string().trim().min(2, { message: "Enter a preferred course" }).max(120),
-  qualification: z.string().trim().min(2, { message: "Enter your highest qualification" }).max(120),
-  academicScore: z.string().trim().min(1, { message: "Enter your percentage or CGPA" }).max(20),
-  intake: z.string().trim().min(1, { message: "Select an intake" }),
+  fullName: optionalName,
+  email: optionalText(255),
+  phone: optionalPhone,
+  country: optionalText(120),
+  course: optionalText(120),
+  qualification: optionalText(120),
+  academicScore: optionalText(20),
+  intake: optionalText(120),
   message: optionalText(1000),
-  consent: z.literal(true, { errorMap: () => ({ message: "Please accept the consent statement" }) }),
+  consent: z.boolean().optional(),
 });
 
 export const counsellingSchema = z.object({
