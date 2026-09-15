@@ -124,7 +124,7 @@ export const whyChooseUs = [
   },
   {
     icon: "award",
-    title: "Scholarship Assistance",
+    title: "Scholarship Help",
     text: "Eligible students are guided towards suitable scholarship opportunities and stronger applications.",
   },
   {
